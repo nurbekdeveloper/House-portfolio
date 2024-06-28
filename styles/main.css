@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*
+
+USED FONTS (FROM GOOGLE FONTS)
+
+font-family: 'Libre Baskerville', serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Red Hat Display', sans-serif;
+*/
+
+:root {
+	--color-blue: #009ede;
+	--color-yellow: #fff500;
+	--color-text: #3b3b3b;
+	--color-green: #00bb8e;
+	--color-white: #ffffff;
+	--rgba-white: rgba(255, 255, 255, 0.1);
+	--font-poppins: 'Poppins', sans-serif;
+	--font-raleway: 'Raleway', sans-serif;
+	--font-red-hat-display: 'Red Hat Display', sans-serif;
+	--font-baskerville: 'Libre Baskerville', serif;
+	--transition-200: 200ms;
+}
+
+html {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+	font-family: var(--font-poppins);
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-baskerville);
+	font-weight: bold;
+}
+
+header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	position: fixed;
+	color: var(--color-white);
+	padding: 10px 40px;
+	z-index: 10;
+	transition: var(--transition-200);
+}
+
+.darkLink {
+	color: #2b2b2b;
+}
+
+header.sticky {
+	width: 100%;
+	background: #3b3b3b;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+header .menu {
+	display: flex;
+	gap: 20px;
+}
+
+header a {
+	color: var(--color-white);
+	text-transform: uppercase;
+	transition: var(--transition-200);
+}
+
+header a:hover {
+	color: var(--color-blue);
+}
+
+.logo {
+	display: block;
+	width: 230;
+	height: 25px;
+	object-fit: fill;
+}
+
+.lang-box select {
+	width: max-content;
+	border: none;
+	background: none;
+	color: var(--color-white);
+	outline: none;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.lang-box option {
+	color: #2b2b2b;
+}
+
+.menu li {
+	transition: var(--transition-200);
+}
+
+.menu li:hover {
+	color: #009ede;
+}
+
+/* =============== SUB MENU DESIGN ============== */
+
+.menu {
+	display: block;
+	position: relative;
+}
+
+.menu li .sub-menu {
+	position: absolute;
+	display: none;
+	background: #3b3b3b;
+	backdrop-filter: blur(20px);
+	padding: 10px;
+	color: var(--color-white);
+	font-weight: normal;
+}
+
+.menu li .sub-menu li:hover {
+	color: #f1f1f1;
+}
+
+.menu li:hover .sub-menu {
+	display: block;
+}
+
+.menu li i {
+	transition: var(--transition-200);
+}
+
+.menu li:hover i {
+	transform: rotateZ(180deg);
+}
+
+/* =============== SUB MENU DESIGN END ============== */
+
+.menu-btn {
+	width: 25px;
+	height: 25px;
+	background: #0090c9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	display: none;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.menu-btn .line {
+	width: 18px;
+	height: 2px;
+	background: var(--color-white);
+	position: relative;
+}
+
+.menu-btn .line::before,
+.menu-btn .line::after {
+	content: '';
+	position: absolute;
+	width: 18px;
+	height: 2px;
+	background: var(--color-white);
+}
+
+.menu-btn .line::before {
+	transform: translateY(6px);
+	width: 14px;
+}
+
+.menu-btn .line::after {
+	transform: translateY(-6px);
+	width: 18px;
+}
+
+/* ============= HOME SECTION STYLING START ============== */
+
+.home-section {
+	width: 100%;
+	height: 100vh;
+	background: url('../images/home-2.jpg') no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.dark-bg {
+	width: 100%;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.6);
+	color: var(--color-white);
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.dark-bg h1 {
+	font-size: 70px;
+	font-family: var(--font-red-hat-display);
+	line-height: 100%;
+}
+
+.dark-bg p {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.dark-bg a {
+	background: rgba(255, 255, 255, 0.1);
+	border: 1px solid var(--color-white);
+	border-radius: 999px;
+	padding: 10px 35px;
+	color: var(--color-white);
+	transition: var(--transition-200);
+	text-transform: uppercase;
+}
+
+.dark-bg a:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.dark-bg .social {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.dark-bg .social a {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	background: rgba(255, 255, 255, 0.1);
+	transition: var(--transition-200);
+}
+
+.dark-bg .social a:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============= HOME SECTION STYLING END============== */
+
+
+.features {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 10px;
+	gap: 20px;
+	transform: translateY(-100px);
+}
+
+.feature {
+	background: #ffffff;
+	width: 300px;
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	text-align: center;
+}
+
+.feature div {
+	background: #0090c9;
+	width: 80px;
+	height: 80px;
+	font-size: 22px;
+	line-height: 80px;
+	border-radius: 50%;
+	margin: 0 auto;
+	color: #ffffff;
+}
+
+.feature h3 {
+	margin: 20px 0 20px 0;
+	font-weight: bolder;
+}
+
+/* ============== About section styling ================= */
+
+.about-section {
+	width: 100%;
+}
+
+.part-1 {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	margin: 70px 0 70px 0;
+}
+
+.part-1 .left {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0 30px 30px 0;
+}
+
+.part-1 .left img {
+	width: 629px;
+	display: block;
+	object-fit: cover;
+	border-radius: 0 30px 30px 0;
+	box-shadow: 0 0 0 2px var(--color-blue), 8px 8px 0 0 var(--color-blue);
+	transition: var(--transition-200);
+}
+
+.part-1 .right,
+.part-2 .right {
+	width: 584px;
+	margin-right: 40px;
+}
+
+.part-1 .right {
+	position: relative;
+}
+
+.part-1 .right::before,
+.part-1 .right::after {
+	content: '';
+	position: absolute;
+	right: -150px;
+	bottom: -200px;
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;
+	background: #2193b0;
+	background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);
+	background: linear-gradient(to right, #6dd5ed, #2193b0);
+	z-index: -1;
+	filter: blur(40px);
+	opacity: 0.15;
+}
+
+.part-1 .right::after {
+	background: #ffe259;
+	background: -webkit-linear-gradient(to right, #ffa751, #ffe259);
+	background: linear-gradient(to right, #ffa751, #ffe259);
+	right: 50px;
+	bottom: -500px;
+}
+
+.part-1 .right h4,
+.part-2 .right h4 {
+	font-size: 20px;
+	margin: 10px 0 10px 0;
+	text-transform: uppercase;
+	color: var(--color-blue);
+}
+
+.part-1 .right h1,
+.part-2 .right h1 {
+	font-size: 40px;
+}
+
+.part-1 .right p,
+.part-2 .right p {
+	font-size: 18px;
+	text-align: justify;
+	margin: 10px 0 10px 0;
+}
+
+.nav-links {
+	display: flex;
+	gap: 25px;
+}
+
+.nav-links a {
+	color: var(--color-blue);
+}
+
+.part-2 {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.part-2 .left img {
+	width: 629px;
+}
+
+.part-3 {
+	width: 82%;
+	display: flex;
+	align-items: flex-end;
+	gap: 30px;
+	justify-content: flex-end;
+}
+
+.part-3 .image-column {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+.part-3 .image-column img {
+	width: 350px;
+	height: 240px;
+	object-fit: cover;
+	border-radius: 25px;
+	display: block;
+	box-shadow: 0 0 0 2px var(--color-blue), 8px 8px 0 0 var(--color-blue);
+}
+
+.part-3 .one-image img {
+	display: block;
+	width: 460px;
+	border-radius: 25px 0 0 25px;
+	box-shadow: 0 0 0 2px var(--color-blue), 8px 8px 0 0 var(--color-blue);
+}
+
+.divider {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: nowrap;
+	gap: 30px;
+	margin: 80px 0 80px 0;
+}
+
+.divider .d-line {
+	width: 300px;
+	height: 7px;
+	background: var(--color-yellow);
+	border-radius: 5px;
+}
+
+.divider .d-line:nth-child(1),
+.divider .d-line:nth-child(3) {
+	width: 150px;
+	background: var(--color-blue);
+}
+
+/* =============== TESTIMONIALS SECTION STYLING ================= */
+
+.review-section {
+	width: 100%;
+	text-align: center;
+	padding: 0 40px 50px 40px;
+}
+
+.review-section h4 {
+	font-size: 20px;
+	color: var(--color-blue);
+}
+
+.review-section h1 {
+	font-size: 40px;
+	margin: 15px 0 15px 0;
+}
+
+.review {
+	width: max-content;
+	padding: 35px;
+	background: #f7f7f7;
+	border-radius: 20px;
+}
+
+.review-header {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	color: var(--color-blue);
+}
+
+.review-header img {
+	width: 100px !important;
+	height: 100px !important;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+}
+
+.review-content {
+	margin-top: 15px;
+}
+
+.review-content p {
+	max-width: 600px;
+	text-align: justify;
+}
+
+.review-content i {
+	font-size: 25px;
+	color: var(--color-blue);
+}
+
+.slider-content {
+	margin: 60px 0 0 0;
+}
+
+/* ]============== TESTIMONIAL SECTION STYLING END ============= */
+
+.booking-section {
+	width: 100%;
+}
+
+.booking-section h1 {
+	font-size: 40px;
+	margin-left: 40px;
+}
+
+.booking-section p {
+	color: var(--color-blue);
+	font-size: 20px;
+	margin-left: 40px;
+}
+
+.booking-box {
+	width: 100%;
+	margin: 50px 0 50px 0;
+	box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.1),
+		0px 25px 20px -20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-box form {
+	width: 100%;
+	padding: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 35px;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.booking-box form div label,
+.booking-box form div input,
+.booking-box form textarea {
+	display: block;
+}
+
+.booking-box form div input,
+.booking-box form textarea {
+	border: 2px solid var(--color-blue);
+	text-indent: 5px;
+	padding: 5px;
+}
+
+.booking-box form textarea {
+	width: 100% !important;
+	resize: none;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	background: rgba(0, 158, 222, 0.04);
+	height: 200px;
+	outline-color: var(--color-blue);
+	transition: var(--transition-200);
+}
+
+.booking-box form label span {
+	color: #df000b;
+}
+
+.booking-box form input:focus {
+	outline: 1px solid var(--color-blue);
+	border: none !important;
+}
+
+.booking-box form textarea:focus {
+	outline: 1px solid var(--color-blue);
+	border: none !important;
+}
+
+.booking-box form button {
+	width: 300px;
+	height: 45px;
+	border: none;
+	border-radius: 30px;
+	color: var(--color-white);
+	background: var(--color-blue);
+	font-size: 18px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: var(--transition-200);
+}
+
+.booking-box form button:hover {
+	background: #00638a;
+}
+
+.booking-box form input {
+	width: 550px;
+	height: 40px;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+}
+
+/* ========= FOOTER SECTION STYLING ================ */
+
+footer {
+	width: 100%;
+	padding: 40px;
+}
+
+footer h2 {
+	color: var(--color-blue);
+}
+
+footer p {
+	text-align: justify;
+	margin: 10px 0 10px 0;
+}
+
+.footer-social {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 30px 0 30px 0;
+}
+
+.footer-social a {
+	width: 200px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	background: #3b3b3b;
+	color: var(--color-white);
+	transition: var(--transition-200);
+}
+
+.footer-social a:hover {
+	background-color: #2b2b2b;
+}
+
+.footer-nav-links {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 90px;
+}
+
+.quick-links {
+	display: flex;
+	gap: 30px;
+}
+
+.quick-links h2 {
+	font-family: var(--font-red-hat-display);
+	color: #3b3b3b;
+}
+
+.quick-links a {
+	display: block;
+	color: #3b3b3b;
+}
+
+/* ========= FOOTER SECTION STYLING END ================ */
+
+/* =================== Scrollbar design ================== */
+
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #0090c9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #00638a;
+}
